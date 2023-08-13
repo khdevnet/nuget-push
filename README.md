@@ -1,4 +1,31 @@
 # nuget-push
+1. Create Readme.md file
+1. Update the project file
+```
+<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<!-- Do not include the generator as a lib dependency -->
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/khdevnet/mc-verifier</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/khdevnet/mc-verifier</PackageProjectUrl>
+		<Description>Message contract testing in event-driven microservice architecture. Message contract tests. Event, command contracts tests.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Company>khdevnet</Company>
+		<Authors>khdevnet</Authors>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Readme.md">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+```
 1. Add secret to Repositiry Sercrets "settings/secrets and variables/New repository secret"
 ```
 NUGET_API_KEY
