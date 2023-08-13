@@ -74,3 +74,13 @@ jobs:
     - name: Push with dotnet McVerifier
       run: dotnet nuget push nuget-packages/dotinstall.botsay.${{ steps.get_version.outputs.version-without-v  }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
 ```
+
+6. To trigger nuget package push create new release with tag "v1.0.0", use 3 symbols to specify version
+
+### NOTES
+#### error: Source parameter was not specified.
+```
+dotnet nuget push nuget-packages/dotinstall.botsay.1.0.0.nupkg --api-key "" --source https://api.nuget.org/v3/index.json --skip-duplicate
+error: Source parameter was not specified.
+```
+Parameter "-k" our other has empty value 
