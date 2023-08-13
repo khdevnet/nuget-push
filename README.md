@@ -1,6 +1,19 @@
-# nuget-push
-1. Create Readme.md file
-1. Update the project file
+# nuget push dotnet install tool
+1. Update proj file with properties
+   ```
+   	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>10</LangVersion>
+		<Nullable>enable</Nullable>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>botsay</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+	</PropertyGroup>
+   ```
+2. Create Readme.md file
+3. Update the project file with tool details
 ```
 <PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -26,11 +39,11 @@
 		</None>
 	</ItemGroup>
 ```
-1. Add secret to Repositiry Sercrets "settings/secrets and variables/New repository secret"
+4. Add the secret to Repository Secrets "settings/secrets and variables/New repository secret"
 ```
 NUGET_API_KEY
 ```
-2. Use actions yml
+5. Use actions yml
 ```
 name: push-nuget
 
