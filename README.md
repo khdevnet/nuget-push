@@ -72,7 +72,7 @@ jobs:
     - name: Pack with dotnet botsay
       run: dotnet pack ./dotinstall.botsay.csproj --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.get_version.outputs.version-without-v  }}
     - name: Push with dotnet McVerifier
-      run: dotnet nuget push nuget-packages/dotinstall.botsay.${{ steps.get_version.outputs.version-without-v  }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nuget-packages/dotinstall.botsay.${{ steps.get_version.outputs.version-without-v  }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 ```
 
 6. To trigger nuget package push create new release with tag "v1.0.0", use 3 symbols to specify version
